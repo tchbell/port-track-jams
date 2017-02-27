@@ -36,11 +36,6 @@ body.landing{
     padding:2rem;
     text-align:center;
     opacity:1;
-    -webkit-transform: rotate(90deg) scaleX(0.5) translateY(3rem);
-    -moz-transform: rotate(90deg) scaleX(0.5) translate(3rem);
-    transform: rotate(90deg) scaleX(0.5) translateY(3rem);
-    -moz-transform:all 0.5s linear;
-   
 }
 
 .point .point-title{
