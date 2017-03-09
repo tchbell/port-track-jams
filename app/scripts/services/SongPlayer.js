@@ -79,11 +79,10 @@
         SongPlayer.play = function(song){
             song=song || SongPlayer.currentSong;
             if(SongPlayer.currentSong===null){
-                
                 setSong(song);
                 playSong(song);
             }else if (SongPlayer.currentSong !== song){
-                stopSong(song);
+                stopSong(SongPlayer.currentSong);
                 setSong(song);
                 playSong(song);
                 
@@ -110,9 +109,9 @@
             currentSongIndex--;
 
             if (currentSongIndex < 0) {
-                stopSong(song);
+                stopSong(SongPlayer.currentSong);
             }else {
-                currentBuzzObject.stop();
+                stopSong(SongPlayer.currentSong);
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
                 playSong(song);
@@ -122,7 +121,7 @@
         SongPlayer.next = function() {
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
-            currentBuzzObject.stop();
+            stopSong(SongPlayer.currentSong);
             var song = currentAlbum.songs[currentSongIndex];
             setSong(song);
             playSong(song);
