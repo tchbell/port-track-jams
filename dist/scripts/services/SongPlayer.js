@@ -78,11 +78,16 @@
         
         SongPlayer.play = function(song){
             song=song || SongPlayer.currentSong;
-            if (SongPlayer.currentSong !== song){
+            if(SongPlayer.currentSong===null){
+                
+                setSong(song);
+                playSong(song);
+            }else if (SongPlayer.currentSong !== song){
+                stopSong(song);
                 setSong(song);
                 playSong(song);
                 
-            }else if(SongPlayer.currentSong === song){
+            }else if(SongPlayer.currentSong === song){  
                 if(currentBuzzObject.isPaused()){
                     playSong(song);
                 }
@@ -133,7 +138,12 @@
             if (currentBuzzObject){
                 currentBuzzObject.setTime(time);
             };
-        }
+        };
+        
+        SongPlayer.volume=40;
+        
+        SongPlayer.setVolume = function(volume){  currentBuzzObject.setVolume(volume);
+        };
         
         return SongPlayer;
     }
