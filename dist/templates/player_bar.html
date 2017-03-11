@@ -27,8 +27,9 @@
                 <seek-bar value="{{ playerBar.songPlayer.currentTime }}" max="{{ playerBar.songPlayer.currentSong.duration }}" on-change="playerBar.songPlayer.setCurrentTime(value)"></seek-bar>
                  
                  <div class="current-time">
-                 {{playerbar.songPlayer.setCurrentTime | timecode}}
+                 {{playerbar.songPlayer.currentTime | timecode}}
                  </div>
+                 
                  <div class="total-time">
                  {{playerbar.songPlayer.currentSong.duration | timecode}}</div>
              </div>
